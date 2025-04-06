@@ -42,11 +42,11 @@ class basemodel(nn.Module):
 
 
         self.re_blocks = BaseModule()
-        self.conv = nn.Conv2d(64, 12, 3, 1,1)
-        self.pixel_shuffle = nn.PixelShuffle(2)
+        self.conv = nn.Conv2d(64, 48, 3, 1,1)
+        self.pixel_shuffle = nn.PixelShuffle(4)
 
     def forward(self, input):
-        res = nn.functional.interpolate(input, scale_factor=2, mode='bicubic', align_corners=False)
+        res = nn.functional.interpolate(input, scale_factor=4, mode='bicubic', align_corners=False)
         x=self.re_blocks(input)#提取特征
         x=self.conv(x)#缩放通道
         output=self.pixel_shuffle(x)#上采样超分重建

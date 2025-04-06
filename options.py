@@ -22,7 +22,7 @@ def parse_opts():
                         type=float,
                         help='learning rate')
     parser.add_argument('--upscale_factor',
-                        default=2,
+                        default=4,
                         type=int,
                         help='Upsacle factor')
 
@@ -72,7 +72,7 @@ def parse_opts():
                         help='Starting epoch for continuing training')
 
     parser.add_argument('--nEpochs',
-                        default=50,
+                        default=100,
                         type=int,
                         help='Number os total epochs to run')
 

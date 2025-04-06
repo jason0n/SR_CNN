@@ -20,7 +20,7 @@ def modcrop(img, scale_factor):
 
 def load_img(hr_file_path, scale_factor):
     # 加载图片
-    target_img = modcrop(Image.open(hr_file_path).convert('RGB'),2)#读取作为目标的高分辨率图像并保证大小能被2整除
+    target_img = modcrop(Image.open(hr_file_path).convert('RGB'),4)#读取作为目标的高分辨率图像并保证大小能被2整除
     downsampled_tar_img = target_img.resize(
         (int(target_img.size[0] / scale_factor), int(target_img.size[1] / scale_factor)), Image.BICUBIC)#下采样两倍获得作为输入的低分辨率图像
 
