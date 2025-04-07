@@ -72,7 +72,7 @@ def parse_opts():
                         help='Starting epoch for continuing training')
 
     parser.add_argument('--nEpochs',
-                        default=100,
+                        default=500,
                         type=int,
                         help='Number os total epochs to run')
 
