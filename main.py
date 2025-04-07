@@ -69,8 +69,8 @@ def train(args, epoch, train_loader, optimizer, model, criterion):
 
         # Warp with torch Variable
         if torch.cuda.is_available():
-            hr_frame = Variable(hr_frame).cuda()
-            lr_frames = Variable(lr_frames).cuda()
+            hr_frame, lr_frames = (Variable(hr_frame),#.cuda()
+                                                     Variable(lr_frames))#.cuda()
 
         # Zero the grad
         optimizer.zero_grad()
@@ -124,8 +124,8 @@ def test(test_loader, model, criterion):
 
             # Warp with torch Variable
             if torch.cuda.is_available():
-                test_hr_frame = Variable(test_hr_frame).cuda()
-                test_lr_frames = Variable(test_lr_frames).cuda()
+                test_hr_frame, test_lr_frames = (Variable(test_hr_frame),
+                                                                     Variable(test_lr_frames))
 
             sr_frame = model(test_lr_frames)
 
